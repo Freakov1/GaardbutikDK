@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Landing Page With Light/Dark Mode</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <main>
+      <div class="big-wrapper light">
+        <img src="./img/landbrug-politik.png" alt="" class="shape" />
+
+        <header>
+          <div class="container">
+            <div class="logo">
+              <a href="/index.html"><img src="./img/bladlogo.png" alt="Logo" /></a>
+              <h3>Earthly Eats</h3>
+            </div>
+
+            <div class="links">
+              <ul>
+                <li><a href="/kort.html">Kort</a></li>
+                <li><a href="/butikker.html">Gårdbutikker</a></li>
+                <li><a href="#">Forum</a></li>
+                <li><a href="/loginpage.html" class="btn">Login</a></li>
+              </ul>
+            </div>
+
+            <div class="overlay"></div>
+
+            <div class="hamburger-menu">
+              <div class="bar"></div>
+            </div>
+          </div>
+        </header>
+
+       
+
+        <div class="showcase-area">
+
+          
+
+          <div id="app" class="containerb">
+
+            
+
+
+            <div style="margin-left: 300px;" class="left">
+              <div class="big-title">
+                <h4>Brugernavn*</h4>
+                <input v-model="addData.username" type="text" required>
+                <h4>Kode*</h4>
+                <input v-model="addData.password" type="password" required>
+                <h4>Gentag Kode*</h4>
+                <input v-model="addData.repeatpassword" type="password" required>
+              </div>
+              
+              <div class="cta">
+                <button style="width: 632px; margin-top: 10px; height: 60px; border-color: rgba(43, 41, 41, 0); font-family: Poppins, sans-serif;" v-on:click="addUser()" class="btn" style="margin-top: 20px;">Opret Bruger</button>
+                
+              </div>
+            </div>
+
+            
+          </div>
+        </div>
+
+        <div class="bottom-area">
+          <div class="container">
+            <button class="toggle-btn">
+              <i class="far fa-moon"></i>
+              <i class="far fa-sun"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- JavaScript Files -->
+
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
