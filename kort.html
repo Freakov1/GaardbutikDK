@@ -7,7 +7,8 @@
     <title>Landing Page With Light/Dark Mode</title>
     <link rel="stylesheet" href="style.css" />
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   </head>
   <body style="height: 100%;">
     <main>
@@ -18,15 +19,15 @@
           <div class="container">
             <div class="logo">
             <a href="/index.html"><img src="./img/bladlogo.png" alt="Logo" /></a>
-            <h3>Earthly Eats</h3>
+            <h3>Gårdbutikken</h3>
             </div>
 
-            <div class="links">
+            <div id="app" class="links">
               <ul>
                 <li><a href="/kort.html">Kort</a></li>
                 <li><a href="/butikker.html">Gårdbutikker</a></li>
-                <li><a href="#">Forum</a></li>
-                <li><a href="/loginpage.html" class="btn">Login</a></li>
+                <li><a href="/profil.html">Profil</a></li>
+                <li><a id="loginbutton" href="/loginpage.html" class="btn">Login</a></li>
               </ul>
             </div>
 
@@ -60,5 +61,6 @@
       ({key: "AIzaSyBAlYHrZypHk5lUTZVzCvDWedbyBblJXFs", v: "weekly"});</script>
     <script src="https://kit.fontawesome.com/a81368914c.js"></script>
     <script src="./app.js"></script>
+    
   </body>
 </html>

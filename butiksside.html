@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Landing Page With Light/Dark Mode</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <main>
+      <div class="big-wrapper light">
+        <img style="scale: 120%;" src="./img/danskgård.png" alt="" class="shape" />
+
+        <header>
+          <div class="container">
+            <div class="logo">
+              <a style="display: flex; align-items: center;" href="/index.html"><img style="margin-top: -2px;" src="./img/bladlogo.png" alt="Logo" />
+              <h3>Gårdbutikken</h3></a>
+            </div>
+
+            <div class="links">
+              <ul>
+                <li><a href="/kort.html">Kort</a></li>
+                <li><a href="/butikker.html">Gårdbutikker</a></li>
+                <li><a href="/profil.html">Profil</a></li>
+                <li><a id="loginbutton" href="/loginpage.html" class="btn">Login</a></li>
+              </ul>
+            </div>
+
+            <div class="overlay"></div>
+
+            <div class="hamburger-menu">
+              <div class="bar"></div>
+            </div>
+          </div>
+        </header>
+
+       
+
+        <div class="showcase-area">
+
+          
+
+          <div id="app" class="container">
+            
+            
+            <div class="left" style="padding-right: 70px; margin-top: 100px;">
+              <div class="big-title">
+                <h2>Stengårdens Økologiske Gårdbutik</h2>
+              </div>
+              
+              <div style="margin-top: 30px;"><p>Stengårdens Økologiske Gårdbutik ligger med deres gode placering mindre end 10 minutter fra Farum. Og lad det være sagt med det samme, det er lidt af en drømmebutik, hvis du er vild med økologiske og lokaldyrkede produkter. Her finder du både produkter, der bliver dyrket på Stengården og lækre, økologiske specialiteter fra andre danske og udenlandske producenter.
+                <br>
+                <br>
+                Det er Elisabeth og Jens Otto Rasmussen, der i mere end 20 år har ejet og drevet Stengården, der bedst kan beskrives som et skønt økologisk landparadis. Da de i 1997 købte gården, var det med drømmen om at skabe nogle gode rammer for dem selv og deres børn. Rammer der bød på mere plads og mere tid sammen med børnene.
+                <br>
+                <br>
+                Lige siden starten, har der været stalddørssalg af de overskydende råvarer fra gårdens produktion. Som årene gik dukkede der dog flere idéer til nye tiltag op, og i 2004 valgte de at satse fuldt ud på landbruget og gårdbutikken.
+                <br>
+                <br>
+                Og Stengårdens Økologiske Gårdbutik er lidt af et paradis, hvis du er vild med nylagte æg fra fritgående høns, smagfuldt oksekød fra eget opdræt, og kartofler der smager nye hele året rundt.</p></div>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; grid-gap: 2rem; margin-top: 20px;">
+
+                <div>
+                    <img class="varerikoner" src="img/potatoes.png"/><text style="margin-left: 20px;">Kartofler</text>
+                </div>
+                
+                <div>
+                    <img class="varerikoner" src="img/onion.png"/><text style="margin-left: 40px;">Løg</text>
+                </div>
+
+                <div>
+                    <img class="varerikoner" src="img/eggs.png"/><text style="margin-left: 42px;">Æg</text>
+                </div>
+
+                <div>
+                    <img class="varerikoner" src="img/cheese.png"/><text style="margin-left: 43px;">Ost</text>
+                </div>
+
+                 <div>
+                    <img class="varerikoner" src="img/juice.png"/><text style="margin-left: 35px;">Most</text>
+                </div>
+
+                <div>
+                    <img class="varerikoner" src="img/milk.png"/><text style="margin-left: 35px;">Mælk</text>
+                </div>
+                
+              </div>
+
+            </div>
+
+            <div class="right">
+                <label for="quantity"><h2>Kartofler, 1Kg</h2></label>
+                <input type="number" id="quantity" name="quantity" min="1" max="99">
+                <label for="quantity"><h2>Løg, 1Kg</h2></label>
+                <input type="number" id="quantity" name="quantity" min="1" max="99">
+                <label for="quantity"><h2>Ost</h2></label>
+                <input type="number" id="quantity" name="quantity" min="1" max="99">
+                <label for="quantity"><h2>Æg, 12stk</h2></label>
+                <input type="number" id="quantity" name="quantity" min="1" max="99">
+                <label for="quantity"><h2>Mælk, 1 liter</h2></label>
+                <input type="number" id="quantity" name="quantity" min="1" max="99">
+                <label for="quantity"><h2>Most, 1 liter</h2></label>
+                <input type="number" id="quantity" name="quantity" min="1" max="99">
+              <button class="btn" style="width: 420px; height: 60px; margin-top: 20px; border-color: rgba(43, 41, 41, 0);">Bestil</button>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 50px;" class="bottom-area">
+          <div class="container">
+            <button class="toggle-btn">
+              <i class="far fa-moon"></i>
+              <i class="far fa-sun"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- JavaScript Files -->
+
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>

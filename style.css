@@ -126,7 +126,7 @@ header .container {
 }
 
 .links a {
-  color: var(--lightTwo);
+  color: black;
   margin-left: 4.5rem;
   display: inline-block;
   transition: 0.3s;
@@ -145,6 +145,7 @@ header .container {
   border-radius: 16px;
   text-transform: capitalize;
   transition: 0.3s;
+  border: none;
 }
 
 .btn:hover {
@@ -226,7 +227,6 @@ header .container {
 }
 
 .text {
-  color: var(--lightOne);
   font-size: 1.1rem;
   margin: 1.9rem 0 2.5rem;
   max-width: 600px;
@@ -237,15 +237,16 @@ header .container {
   box-shadow: 0 0 40px 2px rgba(0, 0, 0, 0.05);
 }
 
-.person {
-  width: 123%;
+.kortbillede {
+  width: 100%;
   transform: translate(15%, 25px);
-  border-radius: 50%;
+  border-radius: 30%;
 }
 
 .ko{
-  width: 123%;
-  border-radius: 100%;
+  width: 100%;
+  border-radius: 30%;
+  margin-top: 50px;
 }
 
 .toggle-btn {
@@ -443,6 +444,15 @@ input{
   border: 2px solid #f1f8fc
 }
 
+.checkbox{
+  
+  height: 35px;
+  background-color: #d5d5d5;
+  cursor: pointer;
+  border-radius: 10px;
+  margin-left: 175px;
+}
+
 /*Maps*/
 
 #map {
@@ -452,8 +462,8 @@ input{
 
 .map-wrapper{
   height: 100%;
-  width: 2560px;
-  height: 1000px;
+  width: 1920px;
+  height: 700px;
   margin: 0;
   padding: 0;
 }
@@ -497,3 +507,7 @@ td {
   text-align: center;
 }
 
+.varerikoner {
+  scale: 90%;
+  border-radius: 40px;
+}

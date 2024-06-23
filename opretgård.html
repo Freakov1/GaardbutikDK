@@ -44,36 +44,31 @@
 
           
 
-          <div id="app" class="container">
+          <div id="app2" class="containerb">
 
             
 
 
-            <div class="left" style="padding-right: 100px;">
+            <div style="margin-left: 300px;" class="left">
               <div class="big-title">
-                <h2>Hej Simon!</h2>
+                <h4>Navn</h4>
+                <input v-model="addData.name" type="text" required>
+                <h4>Adresse</h4>
+                <input v-model="addData.address" type="text" required>
+                <h4>Beskrivelse</h4>
+                <textarea style="border-radius: 10px; border: none;" v-model="addData.description" name="beskrivelse" rows="10" cols="83" required></textarea>
+                <h4>Varer i butikken</h4>
+                <label for="Kartofler">Kartofler</label>
+                <input class="checkbox" name="Kartofler" type="checkbox" v-model="addData.kartofler">
               </div>
-              <p>
-                <br>
-                
-                Velkommen til din profil på vores gårdbutik webapplikation. Her får du et overblik over dine favoritbutikker, dine seneste køb og personlige anbefalinger. Vi er glade for, at du er en del af vores fællesskab, hvor vi støtter lokale landmænd og tilbyder friske, lokale produkter direkte fra gårdene.
-                <br>
-                <br>
-                Hvis du har spørgsmål eller har brug for hjælp, er du altid velkommen til at kontakte os.
-                <br>
-                <br>
-                God fornøjelse med at udforske og handle!
-                <br>
-                <br>
-                Med venlig hilsen,
-                Gårdbutikken Teamet</p>
               
+              <div class="cta">
+                <button style="width: 632px; margin-top: 10px; height: 60px; border-color: rgba(43, 41, 41, 0); font-family: Poppins, sans-serif;" v-on:click="addGårdbutik()" class="btn" style="margin-top: 20px;">Opret Gård</button>
+                
+              </div>
             </div>
 
-            <div style="margin-top: 70px;" class="right">
-              <div><h3>Bliv partner hos Gårdbutikken<h3><br><img src="./img/handshake.jpg" alt="Person Image" style="border-radius: 5%;" /></div>
-              <a href="/opretgård.html"><button class="btn" style="width: 600px; border: none">Opret Gårdbutik</button></a>
-            </div>
+            
           </div>
         </div>
 

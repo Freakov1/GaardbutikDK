@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Landing Page With Light/Dark Mode</title>
     <link rel="stylesheet" href="style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   </head>
   <body>
     <main>
@@ -16,15 +18,15 @@
           <div class="container">
             <div class="logo">
               <a href="/index.html"><img src="./img/bladlogo.png" alt="Logo" /></a>
-              <h3>Earthly Eats</h3>
+              <h3>Gårdbutikken</h3>
             </div>
 
             <div class="links">
               <ul>
                 <li><a href="/kort.html">Kort</a></li>
                 <li><a href="/butikker.html">Gårdbutikker</a></li>
-                <li><a href="#">Forum</a></li>
-                <li><a href="/loginpage.html" class="btn">Login</a></li>
+                <li><a href="/profil.html">Profil</a></li>
+                <li><a id="loginbutton" href="/loginpage.html" class="btn">Login</a></li>
               </ul>
             </div>
 
@@ -39,7 +41,7 @@
         
         
 
-        <div class="showcase-area">
+        <div id="app" class="showcase-area">
 
           
 
@@ -49,35 +51,48 @@
 
             <table id="butikker">
                 <tr>
-                    <td><img src="img/diskgård.jpg"></td>
-                    <td>Gård med landbrug og naturlige økologiske produkter ikke langt fra byen. Har god service og også honning fra egen biavl.</td>
-                    <td>Lejrvej 45, 3500 Værløse<br>
-                        20235896<br>
-                        http://www.rokkedysse.dk/
+                    <td><img src="img/stengården.jpg"></td>
+                    <td>
+                      <h3 style="margin-right: 35px;">Stengårdens Økologiske Gårdbutik</h3>
+                      <br>
+                      <b>Adresse: </b> Stestrup Old 17, 4360 Kirke Eskilstrup
+                      <br ><p style="margin-right: 210px;"><b>Telefon: </b>
+                        20235896<br></p>
+                        <p style="margin-right: 40px;"><b>Hjemmeside: </b> www.stengaardenoko.dk/</p>
+                    </td>
+                    <td>
+                        <a class="btn" href="butiksside.html">Besøg</a>
                     </td>
                 </tr>
                 <tr>
-                    <td><img src="img/landbrug-politik.png"></td>
-                    <td>Gård med landbrug og naturlige økologiske produkter ikke langt fra byen. Har god service og også honning fra egen biavl.</td>
-                    <td>Lejrvej 45, 3500 Værløse<br>
-                        20235896<br>
-                        http://www.rokkedysse.dk/
-                    </td>
-                </tr>
-                <tr>
-                    <td>Gård</td>
-                    <td>Gård</td>
-                    <td>Gård</td>
-                </tr>
-                <tr>
-                    <td>Gård</td>
-                    <td>Gård</td>
-                    <td>Gård</td>
-                </tr><tr>
-                    <td>Gård</td>
-                    <td>Gård</td>
-                    <td>Gård</td>
-                </tr>
+                  <td><img src="img/vittenbjerg.jpg"></td>
+                  <td>
+                    <h3 style="margin-right: 190px;">Langeliniegaarden</h3>
+                    <br>
+                    <b>Adresse: </b> Langelinievej 14, 3600 Frederikssund
+                    <br><p style="margin-right: 220px;"><b>Telefon: </b>
+                      40536113<br></p>
+                      <p style="margin-right: 40px;"><b>Hjemmeside: </b> www.stengaardenoko.dk/</p>
+                  </td>
+                  <td>
+                      <a class="btn" href="butiksside.html">Besøg</a>
+                  </td>
+              </tr>
+              <tr>
+                <td><img src="img/vildhvedegård.jpg"></td>
+                <td>
+                  <h3 style="margin-right: 270px;">Vild Hvede</h3>
+                  <br>
+                  <p style="margin-right: 50px;"><b>Adresse: </b> Skovmøllevej 51, 5474 Veflinge</p>
+                  <p style="margin-right: 220px;"><b>Telefon: </b>
+                    34531767<br></p>
+                    <p style="margin-right: 45px;"><b>Hjemmeside: </b> www.stengaardenoko.dk/</p>
+                </td>
+                <td>
+                    <a class="btn" href="butiksside.html">Besøg</a>
+                </td>
+            </tr>
+              
 
             </table>
 

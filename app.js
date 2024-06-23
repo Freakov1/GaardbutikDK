@@ -1,3 +1,4 @@
+
 // Select The Elements
 var toggle_btn;
 var big_wrapper;
@@ -54,6 +55,8 @@ events();
 
 //Maps
 
+
+
 let map;
 
 async function initMap() {
@@ -64,26 +67,37 @@ async function initMap() {
     zoom: 8,
     mapId: "d0df2efdca5d1b96",
   });
-  const stop = [
-    { 
-      position: { lat: 56.678643, lng: 11.948066 },
-      title: "gårdbutik",
-      address: "gårdvej 819",
-      contentString2: "<h1>aaa</h1>"
-    },
-    { 
-      position: { lat: 55.678643, lng: 11.948066 },
-      title: "gårdbutik2",
-      address: "gardveaj",
-      contentString2: "<h3>Gårdbutik</h3>" + "<div>åbningstider: <br> 10-16</div>"
-    },
-  ];
+
+  let gårdbutikker = [];
+  const pins = [];
+
+  fetch('https://xn--movegrdbutikapi-llb.azurewebsites.net/api/Gårdbutik')
+  .then(res => res.json())
+  .then(data => {
+  gårdbutikker = data;
+  
+
+  gårdbutikker.forEach((gårdbutik, i) => {
+    pins.push({
+      position: { lat: gårdbutik.lat, lng: gårdbutik.lng },
+      title: gårdbutik.name,
+      address: gårdbutik.address,
+      contentString2: "<h2>" + gårdbutik.name + "</h2><br>" + "<div style='width: 300px'>" + gårdbutik.description + "</div>" + "<div><br><b>åbningstider:</b> <br> Mandag: <p style='display: inline-block; margin-left: 30px;'>8-18</p><br> Tirsdag: <p style='display: inline-block; margin-left: 33.5px;'>8-18</p><br> Onsdag: <p style='display: inline-block; margin-left: 33.5px;'>8-18</p><br> Torsdag: <p style='display: inline-block; margin-left: 30.5px;'>8-18</p><br> Fredag: <p style='display: inline-block; margin-left: 37.5px;'>8-18</p><br> Lørdag: <p style='display: inline-block; margin-left: 37.5px;'>8-18</p><br> Søndag: <p style='display: inline-block; margin-left: 34px;'>8-18</p></div><br>" + "<i>" + gårdbutik.address + "</i>" + "<br><br><a href='butiksside.html'><button class=btn style='margin-left: 50px'>Besøg</button></a>",
+    })
+  })
+  
+
+
+  
+
   const infoWindow = new InfoWindow();
 
-  stop.forEach(({ position, title, contentString2 }, i) => {
+  console.log(pins)
+
+  pins.forEach(({ position, title, contentString2 }, i) => {
     const pin = new PinElement({
       glyph: `${i + 1}`,
-      scale: 1.5,
+      scale: 1.3,
     });
     const marker2 = new AdvancedMarkerElement({
       position,
@@ -101,22 +115,14 @@ async function initMap() {
     });
   });
 
-  const marker = new AdvancedMarkerElement({
-    map,
-    position: { lat: 54.678643, lng: 11.948066 },
-  });
-  new google.maps.Marker({
-    position: { lat: 55, lng: 372 },
-    map: map,
-    animation: google.maps.Animation.DROP,
-    icon: "/img/output-onlinepngtools.png",
-  })
-
+})
 }
 
 initMap();
 
 //API
+var Bruger;
+
 
 const url = "https://xn--movegrdbutikapi-llb.azurewebsites.net/api/User"
 
@@ -125,7 +131,7 @@ Vue.createApp({
       return {
           users: [],
           title1: null,
-          addData: {Id: "", username: "", password: ""},
+          addData: {Id: "", username: "", password: "", farm: ""},
           loggedInUser: null
       }
   },
@@ -133,7 +139,15 @@ Vue.createApp({
       console.log("created")
       try {
           const response = await axios.get(url)
+          const response2 = await axios.get(url + '/getcurrentuser')
+          this.loggedInUser = response2.data
           this.users = response.data
+          const buttonById = document.getElementById('loginbutton');
+          console.log(this.loggedInUser)
+          if(this.loggedInUser.username){
+            buttonById.innerText = 'Log Out'
+          }
+          console.log('Button by ID:', buttonById);
       } catch (error) {
           this.users = error.users
       }
@@ -159,20 +173,31 @@ Vue.createApp({
 
           response = await axios.post(url, this.addData)
 
-          this.addData = { Id: "", username: "", password: "" };
+          this.addData = { Id: "", username: "", password: "", farm: "" };
           
       } catch (ex) {
           alert(ex.message)
       }
     },
     async loginUser() {
-      console.log(this.addData.username)
+      console.log(this.users)
+      
+      var userid = this.users.find(user => user.username === this.addData.username && user.password === this.addData.password) 
+
+
+      Bruger = this.addData.username;
+      console.log(userid)
+      console.log(userid.id)
+      console.log(Bruger)
+
       const userExists = this.users.some(user => user.username === this.addData.username && user.password === this.addData.password)
 
       if(userExists){
+        await axios.get(url + "/getuser/" + userid.id)
+        
         loggedInUser = this.addData.username;
         window.location.href = 'profil.html';
-        alert(loggedInUser);
+        
       }
       else{
         alert('no user')
@@ -188,4 +213,61 @@ Vue.createApp({
 }).mount("#app")
 
 
+
+
+const url2 = "https://xn--movegrdbutikapi-llb.azurewebsites.net/api/Gårdbutik"
+
+Vue.createApp({
+  data() {
+      return {
+          Gårdbutik: [],
+          title1: null,
+          addData: {id: "", name: "", address: "", description: "", kartofler: false, lng: 0, lat: 0},
+          
+      }
+  },
+  async created() {
+      console.log("created")
+      try {
+          const response = await axios.get(url2)
+          this.Gårdbutik = response.data
+      } catch (error) {
+          this.Gårdbutik = error.Gårdbutik
+      }
+  },
+  methods: {      
+    async getAll() {
+      try {
+          console.log(url2)
+          const response = await axios.get(url2)
+          this.Gårdbutik = await response.data
+          console.log(this.Gårdbutik)
+      } catch (ex) {
+          alert(ex.message)
+      }
+    },
+    async addGårdbutik() {
+      try {
+        const numbers = this.Gårdbutik.map(butik => butik.id);
+        const max = Math.max(...numbers)
+        
+        this.addData.id = max + 1;
+        
+
+          response = await axios.post(url2, this.addData)
+
+          this.addData = { id: "", name: "", address: "", description: "", kartofler: "" , lng: 0, lat: 0};
+          
+      } catch (ex) {
+          alert(ex.message)
+      }
+    },
+    async ID(){
+
+      const numbers = this.users.map(user => user.id);
+      const max = Math.max(...numbers)
+      alert(max)
+    }
+  }
+}).mount("#app2")
 

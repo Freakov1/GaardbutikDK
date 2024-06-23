@@ -18,15 +18,15 @@
           <div class="container">
             <div class="logo">
               <a href="/index.html"><img src="./img/bladlogo.png" alt="Logo" /></a>
-              <h3>Earthly Eats</h3>
+              <h3>Gårdbutikken</h3>
             </div>
 
             <div class="links">
               <ul>
                 <li><a href="/kort.html">Kort</a></li>
                 <li><a href="/butikker.html">Gårdbutikker</a></li>
-                <li><a href="#">Forum</a></li>
-                <li><a href="/loginpage.html" class="btn">Login</a></li>
+                <li><a href="/profil.html">Profil</a></li>
+                <li><a id="loginbutton" href="/loginpage.html" class="btn">Login</a></li>
               </ul>
             </div>
 
@@ -52,9 +52,9 @@
             <div class="left">
               <div class="big-title">
                 <h2>Brugernavn</h2>
-                <input v-model="addData.username" type="text" placeholder="Brugernavn" required>
+                <input v-model="addData.username" type="text" id="username" placeholder="" required>
                 <h2>Kode</h2>
-                <input v-model="addData.password" type="password" placeholder="Kode" required>
+                <input v-model="addData.password" type="password" placeholder="" required>
               </div>
               
               <div class="cta">
